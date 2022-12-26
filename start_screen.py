@@ -12,7 +12,8 @@ def terminate():
 
 
 def start_screen():
-    intro_text = ['---Press SHIFT to start---']
+    intro_text = ['---Press SPACE to start---']
+    pygame.display.set_caption('Меню')
     pygame.init()
     fon = pygame.transform.scale(load_image('fon.jpg'), (width, height))
     screen.blit(fon, (0, 0))
@@ -32,6 +33,6 @@ def start_screen():
             if event.type == pygame.QUIT:
                 terminate()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SHIFT:
+                if event.key == pygame.K_SPACE:
                     return
         pygame.display.flip()
