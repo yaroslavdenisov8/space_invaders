@@ -1,6 +1,7 @@
 import pygame
 import sys
 from Load_images import load_image
+from button import Button
 
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
@@ -19,6 +20,8 @@ def start_screen():
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
     text_coord = 345
+    button = Button(90, 50)
+    button.draw(175, 345, 'Играть', screen)
     for line in intro_text:
         string_rendered = font.render(line, 1, pygame.Color('white'))
         intro_rect = string_rendered.get_rect()
@@ -32,7 +35,6 @@ def start_screen():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 terminate()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    return
+            if button.get_pressed():
+                return
         pygame.display.flip()
