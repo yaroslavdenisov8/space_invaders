@@ -20,3 +20,4 @@ class Button:
         click = pygame.mouse.get_pressed()
         if click[0] == 1:
             return True
+        return False
