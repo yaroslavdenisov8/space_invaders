@@ -28,7 +28,7 @@ def open_rules_window():
         intro_rect = string_rendered.get_rect()
         text_coord += 10
         intro_rect.top = text_coord
-        intro_rect.x = 100
+        intro_rect.x = 270
         text_coord += intro_rect.height
         screen.blit(string_rendered, intro_rect)
 
