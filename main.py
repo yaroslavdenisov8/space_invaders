@@ -4,7 +4,7 @@ import sys
 import Load_images
 from button import Button
 import Start_screen
-
+import rules_window
 
 pygame.init()
 size = width, height = 600, 400
