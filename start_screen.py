@@ -13,7 +13,7 @@ def terminate():
 
 
 def start_screen():
-    intro_text = ['---Press SPACE to start---']
+    intro_text = []
     pygame.display.set_caption('Меню')
     pygame.init()
     fon = pygame.transform.scale(load_image('fon.jpg'), (width, height))
