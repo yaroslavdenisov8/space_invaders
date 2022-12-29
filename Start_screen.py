@@ -1,9 +1,8 @@
 import pygame
 import sys
-from Load_images import load_image
-from rules_window import open_rules_window
+import Load_images
+import rules_window
 from button import Button
-from main import main
 
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
@@ -18,7 +17,7 @@ def start_screen():
     intro_text = []
     pygame.display.set_caption('Меню')
     pygame.init()
-    fon = pygame.transform.scale(load_image('fon.jpg'), (width, height))
+    fon = pygame.transform.scale(Load_images.load_image('fon.jpg'), (width, height))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
     text_coord = 345
@@ -40,7 +39,7 @@ def start_screen():
             if event.type == pygame.QUIT:
                 terminate()
             if button.get_pressed():
-                main()
+                return
             if rules_button.get_pressed():
-                open_rules_window()
+                rules_window.open_rules_window()
         pygame.display.flip()
