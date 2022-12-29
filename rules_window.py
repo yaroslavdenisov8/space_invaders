@@ -2,7 +2,7 @@ import pygame
 import sys
 from Load_images import load_image
 from button import Button
-from start_screen import start_screen
+from Start_screen import start_screen
 
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
