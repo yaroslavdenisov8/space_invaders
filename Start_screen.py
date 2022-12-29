@@ -21,10 +21,10 @@ def start_screen():
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
     text_coord = 345
-    button = Button(90, 50)
-    button.draw(175, 345, 'Играть', screen)
-    rules_button = Button(90, 50)
+    rules_button = Button(100, 50)
     rules_button.draw(286, 345, 'Правила', screen)
+    button = Button(100, 50)
+    button.draw(175, 345, 'Играть', screen)
     # for line in intro_text:
     #     string_rendered = font.render(line, 1, pygame.Color('white'))
     #     intro_rect = string_rendered.get_rect()
@@ -41,5 +41,5 @@ def start_screen():
             if rules_button.get_pressed():
                 rules_window.open_rules_window()
             if button.get_pressed():
-                return
+                pass
         pygame.display.flip()

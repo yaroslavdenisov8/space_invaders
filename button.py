@@ -8,7 +8,8 @@ class Button:
         self.height = height
 
     def draw(self, x, y, message, screen):
-        click = pygame.mouse.get_pressed()
+        self.x = x
+        self.y = y
         pygame.draw.rect(screen, 'white', (x, y, self.width, self.height))
         font = pygame.font.Font(None, 30)
         text = font.render(f'{message}', True, 'black')
@@ -18,6 +19,9 @@ class Button:
 
     def get_pressed(self):
         click = pygame.mouse.get_pressed()
+        mouse = pygame.mouse.get_pos()
         if click[0] == 1:
-            return True
+            if self.x < mouse[0] < self.x + self.width:
+                if self.y < mouse[1] < self.y + self.height:
+                    return True
         return False
