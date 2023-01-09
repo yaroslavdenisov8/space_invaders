@@ -17,7 +17,7 @@ def open_rules_window():
     intro_text = ["Правила"]
     pygame.display.set_caption('Правила')
     pygame.init()
-    fon = pygame.transform.scale(Load_images.load_image('fon.jpg'), (width, height))
+    fon = pygame.transform.scale(Load_images.load_image('fon2.jpg'), (width, height))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
     text_coord = 30

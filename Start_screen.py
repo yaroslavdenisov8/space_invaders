@@ -3,9 +3,11 @@ import sys
 import Load_images
 import rules_window
 from button import Button
+import settings
 
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
+music = True
 
 
 def terminate():
@@ -17,8 +19,11 @@ def start_screen():
     intro_text = []
     pygame.display.set_caption('Меню')
     pygame.init()
-    # pygame.mixer.music.load('sounds/...')
-    # pygame.mixer.music.play(-1)
+    if music:
+        # pygame.mixer.init()
+        # pygame.mixer.music.load('sounds/fon.mp3')
+        # pygame.mixer.music.play(-1)
+        pass
     fon = pygame.transform.scale(Load_images.load_image('fon.jpg'), (width, height))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
@@ -27,6 +32,8 @@ def start_screen():
     rules_button.draw(286, 345, 'Правила', screen)
     button = Button(100, 50)
     button.draw(175, 345, 'Играть', screen)
+    settings_button = Button(100, 50)
+    settings_button.draw(500, 20, 'Настойки', screen)
     # for line in intro_text:
     #     string_rendered = font.render(line, 1, pygame.Color('white'))
     #     intro_rect = string_rendered.get_rect()
@@ -42,6 +49,8 @@ def start_screen():
                 terminate()
             if rules_button.get_pressed():
                 rules_window.open_rules_window()
+            if settings_button.get_pressed():
+                settings.open_settings_window()
             if button.get_pressed():
                 pass
         pygame.display.flip()
