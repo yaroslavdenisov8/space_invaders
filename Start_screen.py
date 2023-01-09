@@ -17,6 +17,8 @@ def start_screen():
     intro_text = []
     pygame.display.set_caption('Меню')
     pygame.init()
+    # pygame.mixer.music.load('sounds/...')
+    # pygame.mixer.music.play(-1)
     fon = pygame.transform.scale(Load_images.load_image('fon.jpg'), (width, height))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
