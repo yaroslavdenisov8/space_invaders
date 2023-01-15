@@ -13,17 +13,17 @@ def terminate():
     sys.exit()
 
 
-def open_rules_window():
-    intro_text = ["Правила"]
-    pygame.display.set_caption('Правила')
+def end_screen():
+    intro_text = ["Game Over"]
+    pygame.display.set_caption('Конец игры')
     pygame.init()
     fon = pygame.transform.scale(Load_images.load_image('fon2.jpg'), (width, height))
     screen.blit(fon, (0, 0))
-    font = pygame.font.Font(None, 30)
+    font = pygame.font.Font(None, 60)
     text_coord = 30
     button = Button(90, 50)
     for line in intro_text:
-        string_rendered = font.render(line, 1, pygame.Color('white'))
+        string_rendered = font.render(line, 1, pygame.Color('red'))
         intro_rect = string_rendered.get_rect()
         text_coord += 10
         intro_rect.top = text_coord
@@ -32,10 +32,13 @@ def open_rules_window():
         screen.blit(string_rendered, intro_rect)
 
     while True:
-        button.draw(10, 10, 'Назад', screen)
+        button.draw(250, 300, 'Заново', screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 terminate()
             if button.get_pressed():
                 Start_screen.start_screen()
         pygame.display.flip()
+
+
+end_screen()

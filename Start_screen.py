@@ -4,6 +4,7 @@ import Load_images
 import rules_window
 from button import Button
 import settings
+import os
 
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
@@ -17,6 +18,8 @@ def terminate():
 
 def start_screen():
     intro_text = []
+    pygame_icon = pygame.image.load(os.path.join('data', 'icon.jpg'))
+    pygame.display.set_icon(pygame_icon)
     pygame.display.set_caption('Меню')
     pygame.init()
     if music:
@@ -29,11 +32,8 @@ def start_screen():
     font = pygame.font.Font(None, 30)
     text_coord = 345
     rules_button = Button(100, 50)
-    rules_button.draw(286, 345, 'Правила', screen)
     button = Button(100, 50)
-    button.draw(175, 345, 'Играть', screen)
-    settings_button = Button(100, 50)
-    settings_button.draw(500, 20, 'Настойки', screen)
+    settings_button = Button(110, 50)
     # for line in intro_text:
     #     string_rendered = font.render(line, 1, pygame.Color('white'))
     #     intro_rect = string_rendered.get_rect()
@@ -44,6 +44,9 @@ def start_screen():
     #     screen.blit(string_rendered, intro_rect)
 
     while True:
+        rules_button.draw(286, 345, 'Правила', screen)
+        settings_button.draw(480, 10, 'Настройки', screen)
+        button.draw(175, 345, 'Играть', screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 terminate()
