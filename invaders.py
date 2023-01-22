@@ -150,7 +150,8 @@ def end_screen():
 
 
 def open_rules_window():
-    intro_text = ["Правила"]
+    intro_text = ["Правила", "Вверх - W", "Вниз - S", "Влево - A", "Вправо - D",
+                  "Собирайте звезды, чтобы повысить скорострельность"]
     pygame.display.set_caption('Правила')
     pygame.init()
     size = width, height = 600, 400
@@ -170,7 +171,7 @@ def open_rules_window():
         screen.blit(string_rendered, intro_rect)
         showing_rules = True
     while showing_rules:
-        button.draw(235, 345, 'Прочитано', screen)
+        button.draw(23, 345, 'Прочитано', screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
